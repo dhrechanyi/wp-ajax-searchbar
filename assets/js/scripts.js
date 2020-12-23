@@ -1,5 +1,5 @@
 jQuery(function($) {
-    var smd_search_plugin = new Vue({
+    var wp_ajax_searchbar_plugin = new Vue({
         el: '#wp-ajax-searchbar-plugin',
         data: {
             none: '',

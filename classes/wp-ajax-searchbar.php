@@ -73,9 +73,9 @@ class WpAjaxSearchbar {
             wp_add_inline_style( 'wp_ajax_searchbar_css', '.wp-ajax-searchbar-plugin .wrapper .autocomplete-box ul a:hover { color: ' . esc_attr(get_option('results_hover_font_color')) . ' !important; }');
         }
         
-        wp_register_script('wp_ajax_searchbar_vue_js', WP_PLUGIN_URL . '/smd-search/assets/js/' . ($this->debug ? 'vue.min' : 'vue') . '.js', ['jquery']);
+        wp_register_script('wp_ajax_searchbar_vue_js', WP_PLUGIN_URL . '/wp-ajax-searchbar/assets/js/' . ($this->debug ? 'vue.min' : 'vue') . '.js', ['jquery']);
         
-        wp_register_script('wp_ajax_searchbar_js', WP_PLUGIN_URL . '/smd-search/assets/js/scripts.js', ['jquery', 'wp_ajax_searchbar_vue_js']);
+        wp_register_script('wp_ajax_searchbar_js', WP_PLUGIN_URL . '/wp-ajax-searchbar/assets/js/scripts.js', ['jquery', 'wp_ajax_searchbar_vue_js']);
         wp_localize_script('wp_ajax_searchbar_js', '__wp_ajax_searchbar', ['ajax_url' => admin_url( 'admin-ajax.php' )]);
         
         wp_enqueue_script('jquery');
