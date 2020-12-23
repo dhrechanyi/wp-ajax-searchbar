@@ -9,4 +9,10 @@
    License: GPL2
    */
 
+    require 'classes/wp-ajax-searchbar.php';
+    
+    
+    new WpAjaxSearchbar();
+    
+
 ?>
