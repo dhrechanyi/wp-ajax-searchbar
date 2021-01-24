@@ -2,7 +2,7 @@ jQuery(function($) {
     var wp_ajax_searchbar_plugin = new Vue({
         el: '#wp-ajax-searchbar-plugin',
         data: {
-            none: '',
+            nonce: '',
             input: '',
             results: [],
             ajax_url: __wp_ajax_searchbar.ajax_url,
@@ -10,8 +10,23 @@ jQuery(function($) {
             loaded: false
         },
         mounted: function () {
-            this.nonce = $('.wp-ajax-searchbar-plugin').data('none');
-            this.loaded = true;
+            var self = this;
+            
+            $(document).on('click', function (e) {
+                if(self.ajax !== null) {
+                    self.ajax.abort();
+                }
+                
+                self.results = [];
+            });
+            
+            $(document).on('click', '#wp-ajax-searchbar-plugin', function (e) {
+                e.stopPropagation();
+            })
+            
+            $('.ast-header-widget-area aside.widget.widget_text').remove();
+            self.nonce = $('.wp-ajax-searchbar-plugin').data('nonce');
+            self.loaded = true;
         },
         methods: {
             getResults: function (e) {
