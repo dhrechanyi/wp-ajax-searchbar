@@ -3,6 +3,7 @@ jQuery(function($) {
         el: '#wp-ajax-searchbar-plugin',
         data: {
             nonce: '',
+            language: '',
             input: '',
             results: [],
             ajax_url: __wp_ajax_searchbar.ajax_url,
@@ -26,6 +27,7 @@ jQuery(function($) {
             
             $('.ast-header-widget-area aside.widget.widget_text').remove();
             self.nonce = $('.wp-ajax-searchbar-plugin').data('nonce');
+            self.language = $('.wp-ajax-searchbar-plugin').data('language');
             self.loaded = true;
         },
         methods: {
@@ -47,6 +49,7 @@ jQuery(function($) {
                     data : {
                         action: 'wp_ajax_searchbar_run_query',
                         nonce: self.nonce,
+                        language: self.language,
                         search_query: self.input
                     },
                     complete: function () {

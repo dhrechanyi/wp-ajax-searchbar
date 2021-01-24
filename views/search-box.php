@@ -1,4 +1,4 @@
-<div id="wp-ajax-searchbar-plugin" class="wp-ajax-searchbar-plugin" data-nonce="<?php echo wp_create_nonce('wp_ajax_searchbar_nonce'); ?>">
+<div id="wp-ajax-searchbar-plugin" class="wp-ajax-searchbar-plugin" data-nonce="<?php echo wp_create_nonce('wp_ajax_searchbar_nonce'); ?>" data-language="<?php echo (defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : ''); ?>">
     <div class="wrapper">
         <div class="input-box">
             <input type="text" class="input-field" :class="ajax ? 'is-loading' : ''" placeholder="<?php _e( 'Search here', 'wp-ajax-searchbar-plugin' ); ?>" v-model="input" @keyup="getResults($event)">

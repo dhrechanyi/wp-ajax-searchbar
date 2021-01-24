@@ -91,12 +91,17 @@ class WpAjaxSearchbar {
         $response = [];
         
         if(!empty($_REQUEST['search_query'])) {
+            if(defined('ICL_LANGUAGE_CODE') && !empty($_REQUEST['language'])) {
+                do_action('wpml_switch_language', $_REQUEST['language']);
+            }
+            
             $query = new WP_Query([
                 'post_type'         => ['page', 'post', 'product_pages'],
                 'post_status'       => ['publish'],
                 'posts_per_page'    => -1,
                 'orderby'           => 'title',
                 'order'             => 'ASC',
+                'suppress_filters'  => false,
                 's'                 => strip_tags($_REQUEST['search_query'])
             ]);
             
